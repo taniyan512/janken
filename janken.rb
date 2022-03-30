@@ -1,21 +1,23 @@
 def janken
  puts "じゃんけん・・・"
- puts "0(グー)1(チョキ)2(パー)"  
- 
+ puts "0(グー)1(チョキ)2(パー)3(戦わない)"  
  player_hand = gets.to_i
- program_hand = rand(2)
+ program_hand = rand(3)
  
  puts "ホイ！"
 
- jankens = ["グー","チョキ","パー"]
+ jankens = ["グー","チョキ","パー","戦わない"]
  
  puts "あなたの手#{jankens[player_hand]}, プログラムの手#{jankens[program_hand]}"
- 
+ puts player_hand
  if player_hand == program_hand 
    puts "あいこ"
    return true
  elsif player_hand == 0 && program_hand == 1 || player_hand == 1 && program_hand == 2 || player_hand == 2 && program_hand == 0
    yubiwo_sasu
+ elsif player_hand == 3 || program_hand == 3
+   puts "戦いが放棄されました"
+   puts "平和！！"
  else
    kaowo_muku
  end
@@ -34,8 +36,8 @@ def yubiwo_sasu
   
   directions = ["上","下","左","右"]
   
-  puts = "あなた：#{directions[player_yubi]}"
-  puts = "プログラム：#{directions[program_kao]}"
+  puts  "あなた：#{directions[player_yubi]}"
+  puts  "プログラム：#{directions[program_kao]}"
   
   if player_yubi == program_kao
     puts "あなたの勝ちです！"
@@ -57,8 +59,8 @@ def kaowo_muku
   
     directions = ["上","下","左","右"]
     
-  puts = "あなた：#{directions[player_kao]}"
-  puts = "プログラム：#{directions[program_yubi]}"
+  puts  "あなた：#{directions[player_kao]}"
+  puts  "プログラム：#{directions[program_yubi]}"
   
   if player_kao == program_yubi
     puts "あなたの負けです"
